@@ -4,7 +4,8 @@
   roles:
     - system
     - dock
-    - applications
     - pip
     - aws
     - git
+    - applications
+    - android

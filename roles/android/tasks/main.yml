@@ -1,0 +1,9 @@
+---
+- name: Configure Android bash_profile
+  blockinfile:
+    marker: "# ANSIBLE MANAGED BLOCK - Android"
+    path: "{{ home_directory }}/.bash_profile"
+    block: "{{ lookup('file', 'android_bash_profile') }}"
+- name: Install dependencies
+  homebrew:
+    name: '{{ android_dependencies }}'

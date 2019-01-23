@@ -1,0 +1,5 @@
+---
+android_dependencies:
+  - ant
+  - maven
+  - gradle
