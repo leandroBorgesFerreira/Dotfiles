@@ -1,1 +1,16 @@
+---
+homebrew_repositories:
+  - homebrew/cask
+homebrew_apps:
+  - caffeine
+  - docker
+  - github
+  - google-chrome
+  - iterm2
+  - java8
+  - skype
+  - slack
   - spectacle
+  - spotify
+  - atom
+  - whatsapp
