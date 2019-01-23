@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Digital clock with a non-flashing separator
+defaults write com.apple.menuextra.clock FlashDateSeparator -bool false
+defaults write com.apple.menuextra.clock IsAnalog -bool false
+
+# Show battery percent
+defaults write com.apple.menuextra.battery ShowPercent -string 'YES'
