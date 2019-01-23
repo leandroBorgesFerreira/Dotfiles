@@ -1,0 +1,14 @@
+---
+  - name: Create secret variables
+    blockinfile:
+      marker: "# ANSIBLE MANAGED BLOCK SECRET VARIABLES - GITHUB"
+      path: "{{home_directory}}/.bash_profile"
+      block: "export GITHUB_TOKEN={{GITHUB_TOKEN}}"
+  - name: Install dependencies
+    homebrew:
+      name: git-lfs
+      state: present
+  - name: Setup git lfs install
+    shell: |
+      source {{home_directory}}/.bash_profile
+      git lfs install
