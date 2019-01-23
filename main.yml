@@ -2,5 +2,9 @@
   connection: local
 
   roles:
+    - system
+    - dock
+    - applications
+    - pip
     - aws
     - git
