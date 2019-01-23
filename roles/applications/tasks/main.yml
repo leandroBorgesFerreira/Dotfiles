@@ -1,0 +1,36 @@
+---
+- name: Detecting - Homebrew is available
+  stat:
+    path: /usr/local/bin/brew
+  register: homebrew
+- name: Tapping Homebrew repositories
+  homebrew_tap:
+    name: '{{ homebrew_repositories }}'
+    state: present
+  with_items: '{{ homebrew_repositories }}'
+  when:
+    - homebrew.stat.exists or new_homebrew.rc == 0
+- name: Detecting - Cask is available
+  command: brew info cask
+  register: cask
+  changed_when: false
+  when:
+  - homebrew.stat.exists or new_homebrew.rc == 0
+- name: Getting all installed Cask packages
+  command: brew cask list
+  register: installed_cask_packages
+  check_mode: no
+  changed_when: false
+  when:
+  - homebrew.stat.exists or new_homebrew.rc == 0
+  - cask.rc == 0
+- name: Installing Cask packages
+  homebrew_cask:
+    name: '{{ item.name | default(item) }}'
+    install_options: '{{ item.install_options | default(omit) }}'
+  with_items: '{{ homebrew_apps }}'
+  when:
+    - homebrew.stat.exists or new_homebrew.rc == 0
+    - cask.rc == 0
+    - homebrew_apps | count > 0
+    - item.name | default(item) not in installed_cask_packages.stdout.split('\n')
