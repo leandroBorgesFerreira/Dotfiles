@@ -16,3 +16,5 @@ homebrew_apps:
   - whatsapp
   - android-studio
   - macdown
+  - intellij-idea-ce
+  - postman
