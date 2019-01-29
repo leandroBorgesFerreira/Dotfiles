@@ -11,7 +11,7 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Dragging -bool
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool true
 
 # fn + fkey for special behavior, not fkey alone
-defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool false
 
 # Keyboard shortcuts modifier key legend:
 #  @ = command
