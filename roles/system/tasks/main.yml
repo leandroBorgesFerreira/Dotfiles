@@ -20,8 +20,6 @@
     - Restart System UI Server
   when:
     - not inventory.stat.exists or lookup('file', item) | checksum not in inventory_state.stdout
-- name: Configure iTerm2
-  script: iterm2_config.sh
 - name: Creating inventory file
   file:
     path: '{{ inventory_path }}'
