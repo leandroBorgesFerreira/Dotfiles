@@ -7,7 +7,7 @@ homebrew_apps:
   - github
   - google-chrome
   - iterm2
-  - java8
+  - java
   - skype
   - slack
   - spectacle
